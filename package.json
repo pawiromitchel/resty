@@ -1,0 +1,23 @@
+{
+  "name": "sequelize-express-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start:dev": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mitchel Pawirodinomo",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.3",
+    "sequelize": "^4.41.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
