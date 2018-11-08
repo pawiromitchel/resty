@@ -1,18 +1,19 @@
 {
-  "name": "sequelize-express-mysql",
+  "name": "orm-nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js ORM with Sequelize",
   "main": "server.js",
   "scripts": {
     "start:dev": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mitchel Pawirodinomo",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.3",
     "sequelize": "^4.41.1"
