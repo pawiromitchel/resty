@@ -18,7 +18,7 @@ Read more on their website http://docs.sequelizejs.com
     - jwt.js //- verify the JWT token (not finished)
   - models
     - index.js //- auto import your models that are defined within this folder (does not need to be modified)
-    - <model>.js // Just use the existing files ase a boilerplate to modify yours. Read more about Models here http://docs.sequelizejs.com/manual/tutorial/models-definition.html
+    - model.js // Just use the existing files ase a boilerplate to modify yours. Read more about Models here http://docs.sequelizejs.com/manual/tutorial/models-definition.html
   - routes
 - .sequelizerc // http://docs.sequelizejs.com/manual/tutorial/migrations.html#the-sequelizerc-file
 - .app.js // the Express file
