@@ -1,1 +1,1 @@
-# Node.js ORM with Sequelize
+# Sequelize ORM with Express
