@@ -31,7 +31,7 @@ Edit the server/config/config.json file with your database credentials
 
 ## Generating a new Model
 
-I'm using Sequelize-auto to generate a model based on my table (https://github.com/sequelize/sequelize-auto)
+I'm using Sequelize-auto to generate a model based on my table, so you'll need to install that first. Just read the install docs within the repository. (https://github.com/sequelize/sequelize-auto)
 
 ``` sequelize-auto -o "./server/models" -d <database> -h localhost -u root -p 3306 -x <password> -e mysql -t <tables> ```
 
