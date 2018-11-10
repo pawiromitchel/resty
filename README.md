@@ -6,6 +6,17 @@ Read more on their website http://docs.sequelizejs.com
 
 ## Project Structure
 
+- bin
+  - www
+- server
+  - config
+  - controllers
+  - middlewares
+  - models
+  - routes
+.sequelizerc
+.app.js
+
 ## Run the project
 
 ``` git clone https://github.com/pawiromitchel/sequelize-express.git```
