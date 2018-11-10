@@ -14,8 +14,8 @@ Read more on their website http://docs.sequelizejs.com
   - middlewares
   - models
   - routes
-.sequelizerc
-.app.js
+- .sequelizerc
+- .app.js
 
 ## Run the project
 
