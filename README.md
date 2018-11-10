@@ -6,22 +6,26 @@ Read more on their website http://docs.sequelizejs.com
 
 ## Project Structure
 
+```
+
 - bin
-  - www // default port will be 8000
+  - www                     //-- default port will be 8000
 - server
-  - config //- all your config files need to be defined here
-    - config.json //- database credentials (dev,test,prod)
-    - jwt.json //- JWT secret
-    - messages.json //- Static messages
-  - controllers //- Define your controllers here
+  - config                  //-- all your config files need to be defined here
+    - config.json           //-- database credentials (dev,test,prod)
+    - jwt.json              //-- JWT secret
+    - messages.json         //-- Static messages
+  - controllers             //-- Define your controllers here
   - middlewares
-    - jwt.js //- verify the JWT token (not finished)
+    - jwt.js                //-- verify the JWT token (not finished)
   - models
-    - index.js //- auto import your models that are defined within this folder (does not need to be modified)
-    - model.js // Just use the existing files ase a boilerplate to modify yours. Read more about Models here http://docs.sequelizejs.com/manual/tutorial/models-definition.html
+    - index.js              //-- auto import your models that are defined within this folder
+    - model.js              //-- Just use the existing files ase a boilerplate to modify yours
   - routes
-- .sequelizerc // http://docs.sequelizejs.com/manual/tutorial/migrations.html#the-sequelizerc-file
-- .app.js // the Express file
+- .sequelizerc              //-- http://docs.sequelizejs.com/manual/tutorial/migrations.html#the-sequelizerc-file
+- .app.js                   //-- the Express file
+
+```
 
 ## Run the project
 
