@@ -47,3 +47,10 @@ I'm using Sequelize-auto to generate a model based on my table, so you'll need t
 
 If you want to generate all your tables, just remove the '-t' with its parameters and let it run.
 
+## Generating the controllers
+
+A new feature has been added to the project. You can now generate the controllers based on the models.
+
+``` node scripts/generate-controllers.js ```
+
+This will generate the controllers within the ```controllers/``` folder.
