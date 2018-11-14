@@ -60,7 +60,12 @@ If you want to generate all your tables, just remove the '-t' with its parameter
 
 ## Generating the controllers
 
-A new feature has been added to the project. You can now generate the controllers based on the models.
+The following methods will be added to the controller
+1. Create
+2. ListAll
+3. ListOne
+4. Update
+5. Destroy (Delete)
 
 ``` npm run generate:controllers ```
 
@@ -68,8 +73,23 @@ This will generate the controllers within the ```controllers/``` folder.
 
 ## Generating the routes
 
-A new feature has been added to the project. You can now generate the routes based on the controllers.
-
 ``` npm run generate:routes ```
 
 This will generate the controllers within the ```routes/``` folder.
+The endpoint of that route will be the same as the controller.
+
+This is the generated roles route
+```
+const jwt = require('../middlewares/jwt');
+const rolesController = require('../controllers').roles;
+
+module.exports = (app) => {
+  app.route('/roles')
+    .get([jwt.getToken, jwt.verifyToken], rolesController.listAll)
+    .post([jwt.getToken, jwt.verifyToken], rolesController.create)
+    .put([jwt.getToken, jwt.verifyToken], rolesController.update)
+    .delete([jwt.getToken, jwt.verifyToken], rolesController.destroy);
+
+  app.get('/roles/:id', [jwt.getToken, jwt.verifyToken], rolesController.listOne);
+};
+```
