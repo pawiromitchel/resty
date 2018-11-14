@@ -70,7 +70,7 @@ fs.readdirSync(normalizedPath).forEach(model => {
 
         let deleteMethod = `destroy(req, res) {
             return ${model}
-                .update(
+                .destroy(
                     {
                         where: {
                             ${findByKey}
