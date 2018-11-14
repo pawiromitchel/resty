@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require('fs');
 
-const normalizedPath = path.join(__dirname, "../server/models");
+const normalizedPath = path.join(__dirname, "./../server/models");
 fs.readdirSync(normalizedPath).forEach(model => {
     // exclude index
     if (model !== "index.js") {
@@ -13,20 +13,20 @@ fs.readdirSync(normalizedPath).forEach(model => {
         let openModuleExports = `module.exports = {\n`;
         let closingModuleExports = `};\n`;
 
-        const User = require("../server/models").user;
+        const Model = require(`./../server/models/${model}`);
 
         let findByKey = "";
         let allColumns = "";
-        for (let key in User.rawAttributes) {
+        for (let key in Model.rawAttributes) {
             allColumns += `${key}: req.params.${key},\n`;
 
-            if (User.rawAttributes[key].primaryKey) {
+            if (Model.rawAttributes[key].primaryKey) {
                 findByKey += `${key}: req.params.${key},\n`
             }
         }
 
         let createMethod = `create(req, res) {
-            return User
+            return ${model}
                 .create({
                     ${allColumns}
                 })
@@ -53,7 +53,7 @@ fs.readdirSync(normalizedPath).forEach(model => {
         },`;
 
         let updateMethod = `update(req, res) {
-            return User
+            return ${model}
                 .update(
                     {
                         ${allColumns}
@@ -69,7 +69,7 @@ fs.readdirSync(normalizedPath).forEach(model => {
         },`;
 
         let deleteMethod = `destroy(req, res) {
-            return User
+            return ${model}
                 .update(
                     {
                         where: {
@@ -92,9 +92,10 @@ fs.readdirSync(normalizedPath).forEach(model => {
         ${deleteMethod}
         ${closingModuleExports}`;
 
-        fs.writeFile(`../server/controllers/${model}.js`, joiningStrings, { flag: 'wx' }, (err) => {
+        const controllersPath = path.join(__dirname, "./../server/controllers");
+        fs.writeFile(`${controllersPath}/${model}.js`, joiningStrings, { flag: 'wx' }, (err) => {
             if (err) {
-                return console.log(`File ${model} exists`);
+                return console.log(err);
             }
 
             console.log(`The controller of ${model} is created`);

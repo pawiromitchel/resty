@@ -1,14 +1,14 @@
 const Messages = require("../config/messages.json");
 const SecretKey = require("../config/jwt.json").secretKey;
-const User = require("../models").users;
-const UserRoles = require("../models").roles;
+const Users = require("../models").users;
+const Roles = require("../models").roles;
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSaltSync(10);
 const jwt = require('jsonwebtoken');
 
 module.exports = {
     create(req, res) {
-        return User
+        return Users
             .create({
                 role_id: 2,
                 username: req.body.username,
@@ -19,15 +19,15 @@ module.exports = {
             .catch(e => res.status(400).send(e));
     },
     listAll(req, res) {
-        return User
+        return Users
             .findAll({
-                include: [UserRoles]
+                include: [Roles]
             })
             .then(users => res.status(201).send(users))
             .catch(e => res.status(400).send(e));
     },
     listOne(req, res) {
-        return User
+        return Users
             .findAll({
                 where: {
                     user_id: req.params.id
@@ -37,7 +37,7 @@ module.exports = {
             .catch(e => res.status(400).send(e));
     },
     update(req, res) {
-        return User
+        return Users
             .update(
                 {
                     role_id: req.body.username,
@@ -53,7 +53,7 @@ module.exports = {
             .catch(e => res.status(400).send(e));
     },
     auth(req, res) {
-        return User
+        return Users
             .findAll(
                 {
                     where: {

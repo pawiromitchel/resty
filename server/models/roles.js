@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const UserRole = sequelize.define('roles', {
+  const Roles = sequelize.define('roles', {
     role_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -7,11 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: DataTypes.STRING,
   }, {});
-  UserRole.associate = function(models) {
+  Roles.associate = function(models) {
     // associations can be defined here
-    UserRole.hasOne(models.users, {
+    Roles.hasOne(models.users, {
       foreignKey: 'role_id'
     });
   };
-  return UserRole;
+  return Roles;
 };

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('users', {
+  const Users = sequelize.define('users', {
     user_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     date_created: DataTypes.DATE,
     date_updated: DataTypes.DATE,
   }, {});
-  User.associate = function(models) {
+  Users.associate = function(models) {
     // associations can be defined here
-    User.belongsTo(models.roles, {
+    Users.belongsTo(models.roles, {
       foreignKey: 'role_id'
     });
   };
-  return User;
+  return Users;
 };
