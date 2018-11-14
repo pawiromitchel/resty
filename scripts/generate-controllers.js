@@ -9,11 +9,12 @@ fs.readdirSync(normalizedPath).forEach(model => {
         model = model.slice(0, -3);
 
         // create template
-        let importStatements = `const ${model} = require("../models").${model};\n\n`;
-        let openModuleExports = `module.exports = {\n`;
+        let importStatements = `const ${model} = require("../models").${model};\n`;
+        let openModuleExports = `module.exports = {`;
         let closingModuleExports = `};\n`;
 
-        const Model = require(`./../server/models/${model}`);
+        const ModelString = `require('./../server/models').${model}`;
+        const Model = eval(ModelString);
 
         let findByKey = "";
         let allColumns = "";
@@ -95,7 +96,7 @@ fs.readdirSync(normalizedPath).forEach(model => {
         const controllersPath = path.join(__dirname, "./../server/controllers");
         fs.writeFile(`${controllersPath}/${model}.js`, joiningStrings, { flag: 'wx' }, (err) => {
             if (err) {
-                return console.log(err);
+                return console.log(`Controller ${model} exist or someting went wrong`);
             }
 
             console.log(`The controller of ${model} is created`);
