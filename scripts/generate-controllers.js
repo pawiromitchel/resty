@@ -97,8 +97,6 @@ fs.readdirSync(normalizedPath).forEach(model => {
             if (err) {
                 return console.log(`Controller ${model} exist or someting went wrong`);
             }
-
-            console.log(`The controller of ${model} is created`);
         });
     }
 });
@@ -125,6 +123,4 @@ fs.writeFile(`${controllersPath}/index.js`, `
         if (err) {
             return console.log(err);
         }
-
-        console.log(`The index.js is updated`);
     });

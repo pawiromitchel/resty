@@ -26,8 +26,6 @@ fs.readdirSync(normalizedPath).forEach(controller => {
             if (err) {
                 return console.log(`Route ${controller} exist or someting went wrong`);
             }
-
-            console.log(`The route of ${controller} is created`);
         });
     }
 });
