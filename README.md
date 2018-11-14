@@ -94,3 +94,5 @@ module.exports = (app) => {
   app.get('/roles/:id', [jwt.getToken, jwt.verifyToken], rolesController.listOne);
 };
 ```
+
+TIP: ```npm run generate:all``` to generate controllers and routes at the same time
