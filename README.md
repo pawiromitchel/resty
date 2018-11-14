@@ -6,6 +6,13 @@ Read more on their website http://docs.sequelizejs.com
 
 This project is using JWT to secure the routes (middlewares are included)
 
+## Technologies used
+
+- Node.js
+- Expressjs
+- Sequelize
+- JWT
+
 ## Project Structure
 
 ```
