@@ -18,10 +18,10 @@ fs.readdirSync(normalizedPath).forEach(model => {
         let findByKey = "";
         let allColumns = "";
         for (let key in Model.rawAttributes) {
-            allColumns += `${key}: req.params.${key},\n`;
+            allColumns += `${key}: req.body.${key},\n`;
 
             if (Model.rawAttributes[key].primaryKey) {
-                findByKey += `${key}: req.params.${key},\n`
+                findByKey += `${key}: req.body.${key},\n`
             }
         }
 
@@ -45,7 +45,7 @@ fs.readdirSync(normalizedPath).forEach(model => {
             return ${model}
                 .findAll({
                     where: {
-                        ${findByKey}
+                        ${findByKey.replace(/body/g, "params")}
                     }
                 })
                 .then(record => res.status(201).send(record))
