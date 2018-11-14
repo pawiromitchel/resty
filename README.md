@@ -51,6 +51,6 @@ If you want to generate all your tables, just remove the '-t' with its parameter
 
 A new feature has been added to the project. You can now generate the controllers based on the models.
 
-``` node scripts/generate-controllers.js ```
+``` npm run generate:controllers ```
 
 This will generate the controllers within the ```controllers/``` folder.

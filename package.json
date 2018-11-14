@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "nodemon ./bin/www",
+    "generate:controllers": "node scripts/generate-controllers.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mitchel Pawirodinomo",
