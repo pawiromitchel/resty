@@ -1,7 +1,4 @@
-const jwt = require('jsonwebtoken');
 const jwtMiddleware = require('../middlewares/jwt');
-const SecretKey = require("../config/jwt.json").secretKey;
-
 const usersController = require('../controllers').users;
 
 module.exports = (app) => {
@@ -15,13 +12,7 @@ module.exports = (app) => {
 
   app.post('/authenticate', usersController.auth)
 
-  app.get('/secret', jwtMiddleware.verifyToken, function (req, res) {
-    jwt.verify(req.token, SecretKey, (err, authData) => {
-      if (err) {
-        res.sendStatus(403);
-      } else {
-        res.send(authData);
-      }
-    });
+  app.get('/secret', [jwtMiddleware.getToken, jwtMiddleware.verifyToken], function (req, res) {
+    res.send(req.authData);
   });
 };

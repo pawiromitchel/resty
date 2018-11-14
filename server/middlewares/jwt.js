@@ -1,5 +1,8 @@
+const jwt = require('jsonwebtoken');
+const SecretKey = require("../config/jwt.json").secretKey;
+
 module.exports = {
-    verifyToken(req, res, next) {
+    getToken(req, res, next) {
         // Get auth header value
         const bearerHeader = req.headers['authorization'];
         // Check if bearer is undefined
@@ -16,5 +19,19 @@ module.exports = {
             // Forbidden
             res.sendStatus(403);
         }
+    },
+    verifyToken(req, res, next) {
+        console.log(req.token);
+        jwt.verify(req.token, SecretKey, (err, authData) => {
+            if (err) {
+                // Forbidden
+                res.sendStatus(403);
+            } else {
+                // save the user's data
+                req.authData = authData;
+                // Next middleware
+                next();
+            }
+        });
     }
 }
