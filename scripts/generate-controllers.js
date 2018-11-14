@@ -102,3 +102,29 @@ fs.readdirSync(normalizedPath).forEach(model => {
         });
     }
 });
+
+// edit the index.js to export the methods of the controllers
+const controllersPath = path.join(__dirname, "./../server/controllers");
+let controllerList = "";
+let controllerExports = "";
+fs.readdirSync(normalizedPath).forEach(model => {
+    if (model !== "index.js") {
+        // remove .js
+        model = model.slice(0, -3);
+        controllerList += `const ${model} = require('./${model}');\n`;
+        controllerExports += `${model},\n`;
+    }
+});
+
+fs.writeFile(`${controllersPath}/index.js`, `
+            ${controllerList}
+            module.exports = {
+                ${controllerExports}
+            }
+        `, (err) => {
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log(`The index.js is updated`);
+    });
