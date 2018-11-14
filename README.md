@@ -21,6 +21,7 @@ This project is using JWT to secure the routes (middlewares are included)
   - www                     //-- default port will be 8000
 - scripts
   - generate-controllers.js //-- JS script to generate the controllers
+  - generate-routes.js      //-- JS script to generate the routes
 - server
   - config                  //-- all your config files need to be defined here
     - config.json           //-- database credentials (dev,test,prod)
