@@ -10,6 +10,8 @@ Read more on their website http://docs.sequelizejs.com
 
 - bin
   - www                     //-- default port will be 8000
+- scripts
+  - generate-controllers.js //-- JS script to generate the controllers
 - server
   - config                  //-- all your config files need to be defined here
     - config.json           //-- database credentials (dev,test,prod)
