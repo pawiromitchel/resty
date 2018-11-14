@@ -13,8 +13,7 @@ fs.readdirSync(normalizedPath).forEach(model => {
         let openModuleExports = `module.exports = {`;
         let closingModuleExports = `};\n`;
 
-        const ModelString = `require('./../server/models').${model}`;
-        const Model = eval(ModelString);
+        const Model = eval(`require('./../server/models').${model}`);
 
         let findByKey = "";
         let allColumns = "";
