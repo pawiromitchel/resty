@@ -4,6 +4,8 @@ Sequelize is a promise-based ORM for Node.js v4 and up. It supports the dialects
 
 Read more on their website http://docs.sequelizejs.com
 
+This project is using JWT to secure the routes (middlewares are included)
+
 ## Project Structure
 
 ```
@@ -19,7 +21,7 @@ Read more on their website http://docs.sequelizejs.com
     - messages.json         //-- Static messages
   - controllers             //-- Define your controllers here
   - middlewares
-    - jwt.js                //-- verify the JWT token (not finished)
+    - jwt.js                //-- get and verify the JWT token
   - models
     - index.js              //-- auto import your models that are defined within this folder
     - model.js              //-- Just use the existing files ase a boilerplate to modify yours
@@ -56,3 +58,11 @@ A new feature has been added to the project. You can now generate the controller
 ``` npm run generate:controllers ```
 
 This will generate the controllers within the ```controllers/``` folder.
+
+## Generating the routes
+
+A new feature has been added to the project. You can now generate the routes based on the controllers.
+
+``` npm run generate:routes ```
+
+This will generate the controllers within the ```routes/``` folder.
