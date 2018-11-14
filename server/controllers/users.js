@@ -65,7 +65,7 @@ module.exports = {
                 if (user[0]) {
                     bcrypt.compare(req.body.password, user[0].password, (err, bcryptResult) => {
                         if (bcryptResult) {
-                            jwt.sign({ user }, SecretKey, { expiresIn: '30s' }, (err, token) => {
+                            jwt.sign({ user }, SecretKey, { expiresIn: '28800s' }, (err, token) => {
                                 res.status(201).json({
                                     token
                                 });

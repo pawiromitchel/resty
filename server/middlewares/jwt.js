@@ -21,7 +21,6 @@ module.exports = {
         }
     },
     verifyToken(req, res, next) {
-        console.log(req.token);
         jwt.verify(req.token, SecretKey, (err, authData) => {
             if (err) {
                 // Forbidden

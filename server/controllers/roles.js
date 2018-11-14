@@ -5,8 +5,8 @@ module.exports = {
     create(req, res) {
         return roles
             .create({
-                role_id: req.params.role_id,
-                name: req.params.name,
+                role_id: req.body.role_id,
+                name: req.body.name,
 
             })
             .then(user => res.status(201).send(user))
@@ -33,13 +33,13 @@ module.exports = {
         return roles
             .update(
                 {
-                    role_id: req.params.role_id,
-                    name: req.params.name,
+                    role_id: req.body.role_id,
+                    name: req.body.name,
 
                 },
                 {
                     where: {
-                        role_id: req.params.role_id,
+                        role_id: req.body.role_id,
 
                     }
                 }
@@ -49,10 +49,10 @@ module.exports = {
     },
     destroy(req, res) {
         return roles
-            .update(
+            .destroy(
                 {
                     where: {
-                        role_id: req.params.role_id,
+                        role_id: req.body.role_id,
 
                     }
                 }
