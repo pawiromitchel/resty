@@ -12,12 +12,12 @@ fs.readdirSync(normalizedPath).forEach(controller => {
 
             module.exports = (app) => {
                 app.route('/${controller}')
-                  .get([jwt.getToken, jwt.verifyToken], ${controller}Controller.listAll)
-                  .post([jwt.getToken, jwt.verifyToken], ${controller}Controller.create)
-                  .put([jwt.getToken, jwt.verifyToken], ${controller}Controller.update)
-                  .delete([jwt.getToken, jwt.verifyToken], ${controller}Controller.destroy);
+                  .get(${controller}Controller.listAll)
+                  .post(${controller}Controller.create)
+                  .put(${controller}Controller.update)
+                  .delete(${controller}Controller.destroy);
 
-                app.get('/${controller}/:id',[jwt.getToken, jwt.verifyToken], ${controller}Controller.listOne);
+                app.get('/${controller}/:id',${controller}Controller.listOne);
             };
         `;
 

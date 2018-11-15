@@ -3,11 +3,24 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const fs = require("fs");
 const path = require("path");
+const jwt = require('./server/middlewares/jwt');
+const publicRoute = require('./server/config/jwt.json').publicRoute;
 
 const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// middleware to check
+app.use(function (req, res, next) {
+  if (req.url === publicRoute) {
+    // route normally
+    next();
+  } else {
+    // verify if the requester is authenticated
+    jwt.verifyToken(req, res, next);
+  }
+});
 
 // Auto load all our routes into the application.
 const normalizedPath = path.join(__dirname, "./server/routes");
