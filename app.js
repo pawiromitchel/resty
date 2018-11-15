@@ -11,7 +11,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// middleware to check
+// all requests will go through this middleware first
 app.use(function (req, res, next) {
   if (req.url === publicRoute) {
     // route normally
