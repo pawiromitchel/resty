@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require('fs');
-const helper = require('./helper');
 
 module.exports = {
     execute() {
@@ -17,7 +16,7 @@ module.exports = {
                 let closingModuleExports = `};\n`;
 
                 const Model = eval(`require('./../../server/models').${model}`);
-                let includes = "";
+
                 let findByKey = "";
                 let allColumns = "";
                 for (let key in Model.rawAttributes) {
@@ -26,18 +25,7 @@ module.exports = {
                     if (Model.rawAttributes[key].primaryKey) {
                         findByKey += `${key}: req.body.${key},\n`
                     }
-
-                    const reference = Model.rawAttributes[key].references;
-                    if (Model.rawAttributes[key].references) {
-                        const parent = reference.model;
-                        importStatements += `const ${parent} = require("../models").${parent};\n`
-                        includes += `{model: ${parent}, as: '${model}_${parent}'},`
-                    }
                 }
-
-                let includesBuilder = `include: [${includes}]`;
-
-                console.log(includesBuilder);
 
                 let createMethod = `create(req, res) {
             return ${model}
@@ -50,9 +38,7 @@ module.exports = {
 
                 let listAllMethod = `listAll(req, res){
             return ${model}
-                .findAll({
-                    ${includesBuilder}
-                })
+                .findAll()
                 .then(records => res.status(201).send(records))
                 .catch(e => res.status(400).send(e));
         },`;
@@ -60,7 +46,6 @@ module.exports = {
                 let listOneMethod = `listOne(req, res){
             return ${model}
                 .findAll({
-                    ${includesBuilder},
                     where: {
                         ${findByKey.replace(/body/g, "params")}
                     }
