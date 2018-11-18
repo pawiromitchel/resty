@@ -33,14 +33,18 @@ if (tables) {
     fixModel.all(normalizedPathModels);
 }
 
+console.log('[i] Waiting for the models to generate');
 setTimeout(() => {
     // Step 3: Generate Associations (In progress)
+    console.log('[i] Generating associations');
     generateAssociations.execute();
 
     // Step 4: Generate Controllers
+    console.log('[i] Generating controllers');
     generateControllers.execute();
 
     // Step 5: Generate Routes
+    console.log('[i] Generating routes');
     generateRoutes.execute();
 
 }, 1000);
