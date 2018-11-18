@@ -3,7 +3,7 @@ const fs = require('fs');
 
 module.exports = {
     execute() {
-        const normalizedPath = path.join(__dirname, "./../server/controllers");
+        const normalizedPath = path.join(__dirname, "./../../server/controllers");
         fs.readdirSync(normalizedPath).forEach(controller => {
             if (controller !== "index.js") {
                 // remove the .js
@@ -23,7 +23,7 @@ module.exports = {
             };
         `;
 
-                const routesPath = path.join(__dirname, "./../server/routes");
+                const routesPath = path.join(__dirname, "./../../server/routes");
                 fs.writeFile(`${routesPath}/${controller}.js`, routeContents, { flag: 'wx' }, (err) => {
                     if (err) {
                         return console.log(`Route ${controller} exist or someting went wrong`);
