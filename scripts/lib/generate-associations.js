@@ -7,7 +7,6 @@ module.exports = {
         const normalizedPath = path.join(__dirname, "./../../server/models");
         fs.readdirSync(normalizedPath).forEach(model => {
             if (model !== "index.js") {
-                console.log(`=== Doing model: ${model} ===`);
                 // remove the .js
                 model = model.slice(0, -3);
                 const Model = eval(`require('./../../server/models').${model}`);
@@ -110,7 +109,6 @@ module.exports = {
 
                     });
                 }
-                console.log(`=== Ending model: ${model} ===`);
             }
         });
     }

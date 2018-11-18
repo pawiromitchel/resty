@@ -11,7 +11,7 @@ const normalizedPathModels = path.join(__dirname, "./../server/models");
 
 let tables;
 // check if --tables
-process.argv.forEach(function (val, index, array) {
+process.argv.forEach(function (val) {
     if (val.search('tables') !== -1) {
         tables = val.split('=')[1];
     }

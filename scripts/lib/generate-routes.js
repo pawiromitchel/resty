@@ -9,7 +9,6 @@ module.exports = {
                 // remove the .js
                 controller = controller.slice(0, -3);
                 let routeContents = `
-            const jwt = require('../middlewares/jwt');
             const ${controller}Controller = require('../controllers').${controller};
 
             module.exports = (app) => {
