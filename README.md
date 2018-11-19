@@ -27,7 +27,7 @@ Sit back and let the builder do the backend work for you
 
 ## Init project
 
-``` git clone https://github.com/pawiromitchel/sequelize-express.git```
+``` git clone https://github.com/pawiromitchel/restful-builder.git```
 
 ``` cd sequelize-express ```
 
