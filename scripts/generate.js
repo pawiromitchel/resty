@@ -5,6 +5,7 @@ const fixModel = require('./lib/fix-model');
 const generateAssociations = require('./lib/generate-associations');
 const generateControllers = require('./lib/generate-controllers');
 const generateRoutes = require('./lib/generate-routes');
+const formatCode = require('./lib/format-code');
 
 const databaseConfig = require('./../server/config/config.json').development;
 const normalizedPathModels = path.join(__dirname, "./../server/models");
@@ -53,3 +54,9 @@ setTimeout(() => {
     console.log('[i] Generating routes');
     generateRoutes.execute();
 }, 20000);
+
+setTimeout(() => {
+    // Step 5: Generate Routes
+    console.log('[i] Formatting code');
+    formatCode.execute();
+}, 25000);
