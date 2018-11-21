@@ -56,7 +56,7 @@ setTimeout(() => {
 }, 20000);
 
 setTimeout(() => {
-    // Step 5: Generate Routes
+    // Step 6: Format the files (Prettify)
     console.log('[i] Formatting code');
     formatCode.execute();
 }, 25000);
