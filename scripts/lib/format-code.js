@@ -15,7 +15,7 @@ module.exports = {
     execute() {
         needToFormat.forEach((folder) => {
             fs.readdirSync(folder).forEach(file => {
-                execSync(`node_modules/.bin/js-beautify ${modelsPath}/${file} --replace`);
+                execSync(`node_modules/.bin/js-beautify ${folder}/${file} --replace`);
             });
         });
     }
