@@ -2,6 +2,8 @@
 
 Sit back and let the builder do the backend work for you
 
+![Core-Concept](https://i.ibb.co/2jWZqkL/RESTful-Builder-Diagrams-Final.png)
+
 ## Project Structure
 
 ```
