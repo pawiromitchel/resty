@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // all requests will go through this middleware first
 app.use(function (req, res, next) {
-  if (req.url === publicRoute) {
+  if (req.method == "POST" && req.url === publicRoute) {
     // route normally
     next();
   } else {
