@@ -1,11 +1,10 @@
-
-const roles = require("../models").roles;
+const role = require("../models").role;
 
 module.exports = {
     create(req, res) {
-        return roles
+        return role
             .create({
-                role_id: req.body.role_id,
+                id: req.body.id,
                 name: req.body.name,
 
             })
@@ -13,16 +12,19 @@ module.exports = {
             .catch(e => res.status(400).send(e));
     },
     listAll(req, res) {
-        return roles
-            .findAll()
+        return role
+            .findAll({
+                include: []
+            })
             .then(records => res.status(201).send(records))
             .catch(e => res.status(400).send(e));
     },
     listOne(req, res) {
-        return roles
+        return role
             .findAll({
+                include: [],
                 where: {
-                    role_id: req.params.role_id,
+                    id: req.params.id,
 
                 }
             })
@@ -30,33 +32,28 @@ module.exports = {
             .catch(e => res.status(400).send(e));
     },
     update(req, res) {
-        return roles
-            .update(
-                {
-                    role_id: req.body.role_id,
-                    name: req.body.name,
+        return role
+            .update({
+                id: req.body.id,
+                name: req.body.name,
 
-                },
-                {
-                    where: {
-                        role_id: req.body.role_id,
+            }, {
+                where: {
+                    id: req.body.id,
 
-                    }
                 }
-            )
+            })
             .then(result => res.status(201).send(result))
             .catch(e => res.status(400).send(e));
     },
     destroy(req, res) {
-        return roles
-            .destroy(
-                {
-                    where: {
-                        role_id: req.body.role_id,
+        return role
+            .destroy({
+                where: {
+                    id: req.body.id,
 
-                    }
                 }
-            )
+            })
             .then(result => res.status(201).send(result))
             .catch(e => res.status(400).send(e));
     },

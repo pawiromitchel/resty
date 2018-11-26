@@ -1,9 +1,8 @@
-
-const roles = require('./roles');
-const users = require('./users');
+const role = require('./role');
+const user = require('./user');
 
 module.exports = {
-    roles,
-    users,
+    role,
+    user,
 
 }

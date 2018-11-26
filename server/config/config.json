@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "app_testing",
+    "database": "resty_starter",
     "host": "localhost",
     "dialect": "mysql",
     "define": {

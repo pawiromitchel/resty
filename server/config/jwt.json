@@ -1,5 +1,5 @@
 {
-    "publicRoute": "/authenticate",
+    "publicRoute": ["/authenticate", "/register"],
     "tokenName": "key",
     "secretKey": "R2dQ8zqfoLgKs4rupVx3uDeoC5fuaQfFpdcZbE3zkxQTQVwL"
 }
