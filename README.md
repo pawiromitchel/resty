@@ -47,9 +47,15 @@ Edit the server/config/config.json file with your database credentials
 
 ``` npm run generate:backend ```
 
+### Running the app
+
 By default the server will run on port 8000, but it can be specified by the PORT variable
 
 ```PORT=<port> npm run start:dev ```
+
+Starting the production server
+
+```PORT=<port> npm run start:prod ```
 
 ### Using JWT
 
