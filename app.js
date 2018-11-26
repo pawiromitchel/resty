@@ -11,17 +11,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// all requests will go through this middleware first
-app.use(function (req, res, next) {
-  if (req.method == "POST" && (publicRoute.indexOf(req.url) > -1)) {
-    // route normally
-    next();
-  } else {
-    // verify if the requester is authenticated
-    jwt.verifyToken(req, res, next);
-  }
-});
-
 // Auto load all our routes into the application.
 const normalizedPath = path.join(__dirname, "./server/routes");
 fs.readdirSync(normalizedPath).forEach(function(file) {

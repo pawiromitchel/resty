@@ -1,5 +1,7 @@
 # RESTful Builder
 
+## The starterkit will not be configured with JWT, so you'll have to do it yourself. Look at the master brach to see how it's done.
+
 Sit back and let the builder do the backend work for you
 
 ![Core-Concept](https://i.ibb.co/2jWZqkL/RESTful-Builder-Diagrams-Final.png)
@@ -57,33 +59,3 @@ Starting the production server
 
 ```PORT=<port> npm run start:prod ```
 
-### Using JWT
-
-Look in thse files
-- ```server/controllers/users.js```
-
-The ```auth``` method uses bcrypt to compare the given password with the stored one. Then the token is given as result. That token must be submitted before requesting another route.
-
-- ```app.js```
-
-By default the ```/authenticate``` route is being excluded, because the user submitting the data will not have a token yet. If you want to change the ```pubicRoute``` in the ```server/config/jwt.json``` file to the desired route (for example ```/login```)
-
-### Disable JWT
-
-Normally there is a JWT middleware, but that can be disabled in the app.js.
-Remove or comment out the code.
-
-```
-// all requests will go through this middleware first
-app.use(function (req, res, next) {
-  if (req.url === publicRoute) {
-    // route normally
-    next();
-  } else {
-    // verify if the requester is authenticated
-    jwt.verifyToken(req, res, next);
-  }
-});
-```
-
-Remove the ```server/routes/auth.js``` file, this contains a ```/auth``` route
