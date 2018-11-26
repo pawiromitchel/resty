@@ -2,6 +2,8 @@
 
 Sit back and let the builder do the backend work for you
 
+## Switch to the [starter branch](https://github.com/pawiromitchel/resty/tree/starter) if you want to start your app (NOTE: Doesn't have JWT Auth)
+
 ![Core-Concept](https://i.ibb.co/2jWZqkL/RESTful-Builder-Diagrams-Final.png)
 
 ## Project Structure
