@@ -31,9 +31,9 @@ Sit back and let the builder do the backend work for you
 
 ## Init project
 
-``` git clone https://github.com/pawiromitchel/restful-builder.git```
+``` git clone -b starter https://github.com/pawiromitchel/resty.git```
 
-``` cd sequelize-express ```
+``` cd resty ```
 
 ``` npm install ```
 
