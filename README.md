@@ -59,6 +59,18 @@ Starting the production server
 
 ```PORT=<port> npm run start:prod ```
 
+### Give a JWT as header
+
+Add the following to your request
+
+```
+headers: {
+  'Content-Type': 'application/json',
+  Authorization: key=<token>
+}
+
+```
+
 ### Using JWT
 
 Look in thse files
