@@ -1,8 +1,10 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const fs = require("fs");
 const path = require("path");
+
 const jwt = require('./server/middlewares/jwt');
 const publicRoute = require('./server/config/jwt.json').publicRoute;
 
@@ -10,6 +12,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors({ credentials: true, origin: true }));
 
 // all requests will go through this middleware first
 app.use(function (req, res, next) {
