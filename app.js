@@ -4,12 +4,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require("fs");
 const path = require("path");
+const helmet = require('helmet');
 
 const jwt = require('./server/middlewares/jwt');
 const publicRoute = require('./server/config/jwt.json').publicRoute;
 
 const app = express();
 app.use(logger('dev'));
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors({ credentials: true, origin: true }));
