@@ -21,7 +21,7 @@ process.argv.forEach(function (val) {
 if (!tables) console.log(`[i] No specific tables are specified, so I'll generate all tables (including views)`);
 
 // Step 1: Generate the modal
-execSync(`sequelize-auto -o "./server/models" -d ${databaseConfig.database} -h localhost -u root -p ${databaseConfig.password ? databaseConfig.password : ''} 3306 -e mysql ${tables ? '-t ' + tables : ''}`);
+execSync(`sequelize-auto -o "./server/models" -d ${databaseConfig.database} -h localhost -u root -x ${databaseConfig.password ? databaseConfig.password : ''} -p 3306 -e mysql ${tables ? '-t ' + tables : ''}`);
 
 setTimeout(() => {
     // Step 2: Fix the model
